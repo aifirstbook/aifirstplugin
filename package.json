@@ -1,0 +1,126 @@
+{
+  "name": "ai-first-programming",
+  "displayName": "AI First Programming",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.102.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ai-first-programming.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "ai-first-programming.showExample",
+        "title": "Show Example"
+      },
+      {
+        "command": "ai-first-programming.focus",
+        "title": "Focus on AI First Books Panel"
+      },
+      {
+        "command": "ai-first-programming.copyManageModelsCommand",
+        "title": "Copy Manage Models Command"
+      }
+    ],
+    "views": {
+      "ai-first-programming": [
+        {
+          "id": "aiFirstBooks",
+          "name": "Books",
+          "icon": "media/AIFirstIcon.svg"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ai-first-programming",
+          "title": "AI First Programming", 
+          "icon": "media/AIFirstIcon.svg"
+        }
+      ]
+    },
+    "walkthroughs": [
+      {
+        "id": "ai-first-programming-getting-started",
+        "title": "Get Started with AI First Programming",
+        "description": "Learn how to use this extension as your companion for the AI First Programming book series",
+        "steps": [
+          {
+            "id": "enable-model-provider",
+            "title": "Enable AI First Book Examples",
+            "description": "Before you can use the AI First Book Examples model in VS Code's chat, you need to enable and select it.\n\n**Instructions:**\n1. Click the button below to copy the command and open the Command Palette\n2. Paste the command (Ctrl+V / Cmd+V) and press Enter\n3. Find \"AI First Book Examples\" in the Manage Models interface\n4. Enable the model by toggling it on\n5. Select it as your active model\n\n[Copy Command & Open Command Palette](command:ai-first-programming.copyManageModelsCommand)",
+            "media": {
+              "markdown": "media/walkthrough/enable-model-provider.md"
+            }
+          },
+          {
+            "id": "explore-books",
+            "title": "Explore the Book Content",
+            "description": "Open the AI First Books panel and navigate to the section for the language and book you are reading. The content is organized by book, section, chapter, and example.\n\n[Open AI First Books Panel](command:ai-first-programming.focus)",
+            "media": {
+              "markdown": "media/walkthrough/explore-books.md"
+            }
+          },
+          {
+            "id": "open-example",
+            "title": "Open an Example",
+            "description": "Navigate through the sections and chapters in the tree view. Click on any example to view the detailed prompt and code response with syntax highlighting.",
+            "media": {
+              "markdown": "media/walkthrough/open-example.md"
+            }
+          },
+          {
+            "id": "copy-example-code",
+            "title": "Copy the Example Code",
+            "description": "Copy the prompt from the example so you can use it to generate code.\n\n**Instructions:**\n1. Click the \"Copy Prompt\" button in the example view\n2. The button will show \"✓ Copied!\" to confirm the prompt is in your clipboard\n3. Open a new editor with `Ctrl+N` (or `Cmd+N` on Mac) to prepare for pasting the prompt",
+            "media": {
+              "markdown": "media/walkthrough/copy-example-code.md"
+            }
+          },
+          {
+            "id": "use-with-copilot",
+            "title": "Use with GitHub Copilot Chat",
+            "description": "Use GitHub Copilot Chat to generate code using the prompts from the AI First Programming books.\n\n**Instructions:**\n1. Invoke GitHub Copilot Chat with `Ctrl+Shift+I` (or `Cmd+Shift+I` on Mac)\n2. Paste the copied prompt with `Ctrl+V` (or `Cmd+V` on Mac)\n3. Send the prompt to generate code\n\n**Note:** Make sure to switch to the AI First Book Examples model in the chat interface. You only need to do this once - it will remain selected for future chats.",
+            "media": {
+              "markdown": "media/walkthrough/use-with-copilot.md"
+            }
+          }
+        ]
+      }
+    ],
+    "languageModelChatProviders": [
+      {
+        "vendor": "ai-first",
+        "displayName": "AI First Book Examples"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "eslint": "^9.25.1",
+    "typescript": "^5.8.3",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
