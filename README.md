@@ -28,7 +28,7 @@ You can find the AI First Programming extension in the VS Code Extension Marketp
 
 After installation, you'll see a new icon in the sidebar with a picture of a book that has "A" and "I" on the pages. Click this icon to open the extension.
 
-> **Note**: The extension will be available in the VS Code Marketplace. [Marketplace link will be added when available]
+> **Note**: The extension is available in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/items?itemName=AIFirstProgramming.ai-first-programming).
 
 ## Using the Plugin
 
